@@ -1,15 +1,13 @@
 resource "aws_instance" "variables-ec2"{
-    ami = var.ami
-    instance_type= var.type-ins
-    instance_security_group=[aws_security_group.variable.sg.id]
+    ami = var.ami_id
+    instance_type= var.ins-type
+    vpc_security_group_ids=[aws_security_group.variables-sg.id]
 
-    tags{
-       name= var.ec2_tags
-    }
+    tags= var.ec2_tags
 }
 
 resource "aws_security_group" "variables-sg"{
-    name = "allowing all traffic for this instance"
+    name = "Learning_SG"
 
     egress{
         from_port= var.sg_from_port
@@ -24,7 +22,5 @@ resource "aws_security_group" "variables-sg"{
         cidr_blocks= var.sg_cidr_block
     }
 
-    tags{
-        name= var.sg_tags
-    }
+    tags= var.sg_tags
 }

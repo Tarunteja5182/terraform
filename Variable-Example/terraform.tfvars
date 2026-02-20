@@ -1,0 +1,1 @@
+# ins-type = "t3.small"
