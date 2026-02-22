@@ -4,7 +4,7 @@ resource "aws_instance" "test_terraform"{
     vpc_security_group_ids = [aws_security_group.test_sg.id]
     
     tags = {
-    Name = "terraform-ec2"
+    Name = "Ansible-host"
     Env = "sample"
 
   }
