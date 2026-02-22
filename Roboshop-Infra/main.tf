@@ -34,3 +34,12 @@ resource "aws_security_group" "roboshop_sg"{
         name = "Roboshop allow ports"
     }
 }
+
+resource "aws_route53_record" "www" {
+  count = 10  
+  zone_id = var.zone_id
+  name    = "${var.instances_robshop[count.index]}.${var.domain_name}"
+  type    = "A"
+  ttl     = 1
+  records = [aws_instance.roboshop_ec2[count.index].private_ip]
+  }

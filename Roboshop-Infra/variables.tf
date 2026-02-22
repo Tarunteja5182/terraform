@@ -10,7 +10,7 @@ variable "ec2_type"{
 
 variable "instances_robshop"{
     type = list
-    default =["mangodb","redis","catalogue","mysql","payment","shipping","cart","rabbitmq","user","frontend"]
+    default =["mongodb","redis","catalogue","mysql","payment","shipping","cart","rabbitmq","user","frontend"]
 }
 
 variable "sg_from_port"{
@@ -31,4 +31,14 @@ variable "sg_protocol"{
 variable "sg_cidr"{
     type = list
     default = ["0.0.0.0/0"]
+}
+
+variable "domain_name"{
+    type = string
+    default= "mbops.online"
+}
+
+variable "zone_id"{
+    type = string
+    default = "Z0994037IHVPKSSQRAUE"
 }
