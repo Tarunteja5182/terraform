@@ -41,5 +41,8 @@ resource "aws_route53_record" "www" {
   name    = "${var.instances_robshop[count.index]}.${var.domain_name}"
   type    = "A"
   ttl     = 1
-  records = [aws_instance.roboshop_ec2[count.index].private_ip]
+  records = [aws_instance.roboshop_ec2[count.index].tags.Name == "frontend" ? 
+  aws_instance.roboshop_ec2[count.index].public_ip:aws_instance.roboshop_ec2[count.index].private_ip]
+              
   }
+
