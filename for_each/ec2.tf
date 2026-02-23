@@ -3,12 +3,12 @@ resource "aws_instance" "each_instance"{
       ami = var.ami
       instance_type = var.ec2_type
       vpc_security_group_ids = [aws_security_group.each_sg.id]
-
+      for_each = toset(var.instance_names)
       tags = {
-        Name = for_each(var.instance_names)
+        name = each.key
         project = "roboshop"
         evn = "test"
-      }
+        }
 }
 
 resource "aws_security_group" "each_sg"{
@@ -17,14 +17,14 @@ resource "aws_security_group" "each_sg"{
          from_port = "0"
          to_port = "0"
          protocol = "-1"
-         cidr_block = ["0.0.0.0/0"]
+         cidr_blocks = ["0.0.0.0/0"]
          description = "each ingress"
     }
     egress{
         from_port = "0"
          to_port = "0"
          protocol = "-1"
-         cidr_block = ["0.0.0.0/0"]
+         cidr_blocks = ["0.0.0.0/0"]
          description = "each egress"
     }
 }

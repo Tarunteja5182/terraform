@@ -1,6 +1,6 @@
 variable "instance_names"{
-    type = list
-    default = ["monogodb","reddis","mysql"]
+   type = list
+   default = ["mongodb","reddis","mysql"]
 }
 
 variable "common_tags"{
