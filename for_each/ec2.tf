@@ -5,7 +5,7 @@ resource "aws_instance" "each_instance"{
       vpc_security_group_ids = [aws_security_group.each_sg.id]
       for_each = toset(var.instance_names)
       tags = {
-        name = each.key
+        Name = each.key
         project = "roboshop"
         evn = "test"
         }
