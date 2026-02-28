@@ -3,6 +3,7 @@ resource "aws_instance" "prov_ins"{
     instance_type = local.ins_type
     vpc_security_group_ids = [aws_security_group.prov_sg.id]
     tags = merge(var.common_tags, local.immutable_tags)
+    
     provisioner "local-exec" {
     command = "echo The server's IP address is ${self.private_ip}"
   }
