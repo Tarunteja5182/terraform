@@ -8,13 +8,18 @@ variable "ins_type"{
     default = "t3.micro"
 }
 
+variable "tags" {
+  type = map
+  default ={}
+}
+
 variable "project"{
     type= string
     default = "Roboshop"
 }
 
 variable "env"{
-    trype= string
+    type= string
     default = "dev"
 }
 

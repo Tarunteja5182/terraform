@@ -1,10 +1,11 @@
-data "aws_security_group" "sam"{
-    filter {
-        name = "Security group name"
-        value = "data_sg"
-    }
-    filter{
-        name = "owner"
-        value = "003252302882"
-    }
+data "aws_security_group" "sam" {
+  filter {
+    name   = "group-name"
+    values = ["data_sg"]
+  }
+
+  filter {
+    name   = "vpc-id"
+    values = ["vpc-02a5f3c943f5cb635"]
+  }
 }

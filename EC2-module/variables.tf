@@ -2,16 +2,16 @@ variable "ami_id"{
     type = string
 }
 
-variable "ins_type"{
+variable "instance_type"{
     type = string
 }
 
-variable "ec2_tags"{
+variable "tags"{
     type = map
     default={}
 }
 
-variable "sg_id"{
+variable "vpc_security_group_ids"{
     type= list
 }
 
